@@ -1,0 +1,35 @@
+{% extends './base.html' %} {% block content %} {% for item in items %}
+
+<div
+  class="card"
+  style="
+    background-color: beige;
+    width: 18rem;
+    margin: auto;
+    margin-bottom: 20px;
+  "
+>
+  <div class="card-body" style="margin: auto">
+    <h5 class="card-title" style="font-weight: bold">{{item.name}}</h5>
+    <p class="card-text">$ {{item.price}}</p>
+    <div class="container" style="margin-bottom: 5px">
+      <a
+        href="{% url 'store:detail' item.id %}"
+        class="btn btn-warning"
+        style="color: red"
+        >Details</a
+      >
+    </div>
+
+    <div class="container" style="margin-bottom: 5px">
+      <a
+        href="{% url 'store:show' item.id  %}"
+        class="btn btn-warning"
+        style="color: red"
+        >Add to Cart</a
+      >
+    </div>
+  </div>
+</div>
+
+{% endfor %} {% endblock content %}
